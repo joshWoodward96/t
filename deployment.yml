@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-test
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: api-test
+  template:
+    metadata:
+      labels:
+        app: pi-test
+    spec:
+      containers:
+        - name: api-test
+          image: 14066910/api-test:1.0
+          ports:
+            - containerPort: 80
